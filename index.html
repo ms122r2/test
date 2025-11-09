@@ -1,105 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Rec Engine Standalone Demo</title>
-    <!-- RecEngine styles -->
-    <link rel="stylesheet" href="../dist/recengine/recengine.css" />
-    <style>
-      body {
-        margin: 0;
-        padding: 2rem;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        background: #f1f5f9;
-      }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rec Engine Test</title>
 
-      main {
-        max-width: 960px;
-        margin: 0 auto;
-      }
-
-      header {
-        margin-bottom: 2rem;
-        text-align: center;
-      }
-
-      header h1 {
-        margin-bottom: 0.75rem;
-      }
-
-      header p {
-        margin: 0;
-        color: #64748b;
-      }
-
-      .config {
-        margin-bottom: 1.5rem;
-        padding: 1rem 1.5rem;
-        border-radius: 12px;
-        background: #fff;
-        border: 1px solid rgba(15, 23, 42, 0.08);
-      }
-
-      .config code {
-        background: rgba(37, 99, 235, 0.12);
-        padding: 0.2rem 0.4rem;
-        border-radius: 6px;
-      }
-    </style>
+    <!-- 1) CSS served from your deployed host -->
+    <link
+      rel="stylesheet"
+      href="https://lxs-eds-components.vercel.app/recengine/recengine.css"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
-    <main>
-      <header>
-        <h1>Rec Engine Standalone Demo</h1>
-        <p>
-          Make sure you have built the standalone bundle with
-          <code>npm run build:component RecEngine</code> before loading this
-          page.
-        </p>
-      </header>
+    <!-- 2) Container with required data attributes -->
+    <!-- Replace the placeholder IDs below with your Directus configuration -->
+    <div
+      id="rec-engine"
+      data-rec-engine
+      data-form-id="REPLACE_WITH_FORM_ID"
+      data-tenant-id="REPLACE_WITH_TENANT_ID"
+      data-theme="light"
+      data-collect-contact="true"
+    ></div>
 
-      <section class="config">
-        <p>
-          Update the snippet below with your Rec Engine configuration. At a
-          minimum, provide:
-        </p>
-        <ul>
-          <li>
-            <code>data-form-id</code> — a Directus form ID configured for the
-            Rec Engine flow
-          </li>
-          <li>
-            <code>window.__LXS_COMPONENTS_BASE_URL__</code> (or
-            <code>data-api-base</code>) — the absolute URL to your hosted
-            <code>/api/rec-engine</code> routes
-          </li>
-          <li>
-            Optionally <code>data-tenant-id</code>, <code>data-theme</code>, and
-            <code>data-collect-contact</code>
-          </li>
-        </ul>
-      </section>
-
-      <!-- Configure API base URL for the standalone bundle -->
-      <script>
-        // Replace with your deployed URL, e.g. "https://your-app.vercel.app/api/rec-engine"
-        window.__LXS_COMPONENTS_BASE_URL__ =
-          "http://localhost:3000/api/rec-engine";
-      </script>
-
-      <!-- Rec Engine container -->
-      <div
-        id="rec-engine-demo"
-        data-rec-engine
-        data-form-id="550e8400-e29b-41d4-a716-446655440010"
-        data-tenant-id="660e8400-e29b-41d4-a716-446655440200"
-        data-theme="light"
-        data-collect-contact="true"
-      ></div>
-    </main>
-
-    <!-- RecEngine bundle -->
-    <script src="../dist/recengine/recengine.js"></script>
+    <!-- 3) JS bundle (includes React + ReactDOM and auto-mounts the component) -->
+    <script
+      src="https://lxs-eds-components.vercel.app/recengine/recengine.js"
+      crossorigin="anonymous"
+      defer
+    ></script>
   </body>
 </html>
